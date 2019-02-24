@@ -1,6 +1,6 @@
 import React from "react"
 import { css } from "@emotion/core"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -9,6 +9,9 @@ export default () => {
         edges {
           node {
             id,
+            fields {
+              slug
+            },
             frontmatter {
               title,
               subtitle,
@@ -24,7 +27,7 @@ export default () => {
 
   const items = data.allMarkdownRemark.edges.map(({ node }) => (
     <article key={node.id}>
-      <h1>{node.frontmatter.title}</h1>
+      <Link to={node.fields.slug}><h1>{node.frontmatter.title}</h1></Link>
       <h3>{node.frontmatter.subtitle}</h3>
       {
         node.frontmatter.tags.length &&
