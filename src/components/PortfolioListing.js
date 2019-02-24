@@ -26,7 +26,9 @@ export default () => {
   `)
 
   const items = data.allMarkdownRemark.edges.map(({ node }) => (
-    <article key={node.id}>
+    <article key={node.id} css={css`
+      margin: 3rem 0;
+    `}>
       <Link to={node.fields.slug}><h1>{node.frontmatter.title}</h1></Link>
       <h3>{node.frontmatter.subtitle}</h3>
       {
