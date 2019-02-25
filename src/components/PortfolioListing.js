@@ -43,7 +43,9 @@ export default () => {
       <div css={css`
         margin-right: 1rem;
       `}>
-        <Image fixed={node.frontmatter.mainimage.childImageSharp.fixed}></Image>
+        <Link to={node.fields.slug}>
+          <Image fixed={node.frontmatter.mainimage.childImageSharp.fixed}></Image>
+        </Link>
       </div>
       <div>
         <Link to={node.fields.slug}>
