@@ -1,6 +1,7 @@
 import React from "react"
 import { css } from "@emotion/core"
 import Image from "gatsby-image"
+import { defaultTag } from "../styles/index"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
 export default () => {
@@ -57,15 +58,7 @@ export default () => {
             `
           }>
             {node.frontmatter.tags.map((tag, index) => (
-              <li key={`tag-${index}`} css={css`
-                display: inline-block;
-                background-color: #dbdbdb;
-                font-family: 'Open Sans', sans-serif;
-                color: #353535;
-                border-radius: 5px;
-                margin: 5px;
-                padding: 2px 8px;
-              `}>{tag}</li>
+              <li key={`tag-${index}`} css={defaultTag}>{tag}</li>
             ))}
           </ul>
         }
