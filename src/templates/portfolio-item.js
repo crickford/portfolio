@@ -7,7 +7,7 @@ import { defaultTag } from "../styles/index"
 export default ({ data }) => {
   const node = data.markdownRemark
   return (
-    <article>
+    <article css={css`margin-top: 3rem;`}>
       <Image fixed={node.frontmatter.mainimage.childImageSharp.fixed}></Image>
       <div css={css`display: flex;`}>
         <div css={css`flex: 3;`}>
