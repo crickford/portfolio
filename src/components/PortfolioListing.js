@@ -34,7 +34,7 @@ export default () => {
     }
   `)
 
-  const items = data.allMarkdownRemark.edges.map(({ node }) => (
+  return data.allMarkdownRemark.edges.map(({ node }) => (
     <article key={node.id} css={css`
       margin: 3rem 0;
       display: flex;
@@ -68,6 +68,4 @@ export default () => {
       
     </article>
   ))
-
-  return items
 }
