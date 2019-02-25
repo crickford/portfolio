@@ -23,7 +23,6 @@ export default ({ children }) => {
     `}>
       <aside css={css`
         flex: 1;
-        background-color: #f4f4f4;
         padding: 2rem;
       `}>
         <h1>{data.site.siteMetadata.owner.name}</h1>
@@ -33,6 +32,7 @@ export default ({ children }) => {
         flex: 4;
         padding-left: 2rem;
         height: 100vh;
+        background-color: #f4f4f4;
         overflow-y: scroll;
       `}>
         {children}
