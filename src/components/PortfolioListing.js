@@ -3,6 +3,7 @@ import { css } from "@emotion/core"
 import Image from "gatsby-image"
 import { defaultTag } from "../styles/index"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import { Flipped } from "react-flip-toolkit"
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -44,7 +45,11 @@ export default () => {
         margin-right: 1rem;
       `}>
         <Link to={node.fields.slug}>
-          <Image fixed={node.frontmatter.mainimage.childImageSharp.fixed}></Image>
+          <Flipped flipId={node.id}>
+            <div css={css`display: inline-block;`}>
+              <Image fixed={node.frontmatter.mainimage.childImageSharp.fixed}></Image>
+            </div>
+          </Flipped>
         </Link>
       </div>
       <div>

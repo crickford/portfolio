@@ -3,12 +3,17 @@ import Image from "gatsby-image"
 import { graphql } from "gatsby"
 import { css } from "@emotion/core"
 import { defaultTag } from "../styles/index"
+import { Flipped } from "react-flip-toolkit"
 
 export default ({ data }) => {
   const node = data.markdownRemark
   return (
     <article css={css`margin-top: 3rem;`}>
-      <Image fixed={node.frontmatter.mainimage.childImageSharp.fixed}></Image>
+      <Flipped flipId={node.id}>
+        <div css={css`display: inline-block;`}>
+          <Image fixed={node.frontmatter.mainimage.childImageSharp.fixed}></Image>
+        </div>
+      </Flipped>
       <div css={css`display: flex;`}>
         <div css={css`flex: 3;`}>
           <h1>{node.frontmatter.title}</h1>
@@ -37,7 +42,8 @@ export default ({ data }) => {
 export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+      id,
+      html,
       frontmatter {
         title,
         subtitle,
