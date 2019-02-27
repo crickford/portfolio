@@ -10,8 +10,12 @@ export default ({ data }) => {
   return (
     <article css={css`margin-top: 3rem;`}>
       <Flipped flipId={node.id}>
-        <div css={css`display: inline-block;`}>
-          <Image fixed={node.frontmatter.mainimage.childImageSharp.fixed}></Image>
+        <div css={css`
+          display: inline-block;
+          width: 75%;
+          max-width: 800px;
+        `}>
+          <Image fluid={node.frontmatter.mainimage.childImageSharp.fluid}></Image>
         </div>
       </Flipped>
       <div css={css`display: flex;`}>
@@ -49,9 +53,10 @@ export const query = graphql`
         subtitle,
         tags,
         mainimage {
+          publicURL
           childImageSharp {
-            fixed(width: 800) {
-              ...GatsbyImageSharpFixed
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
