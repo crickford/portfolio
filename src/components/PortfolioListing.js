@@ -45,7 +45,7 @@ export default () => {
         margin-right: 1rem;
       `}>
         <Link to={node.fields.slug}>
-          <Flipped flipId={node.id}>
+          <Flipped translate={true} scale={true} opacity={false} flipId={node.id}>
             <div css={css`display: inline-block;`}>
               <Image fixed={node.frontmatter.mainimage.childImageSharp.fixed}></Image>
             </div>
@@ -54,11 +54,11 @@ export default () => {
       </div>
       <div>
         <Link to={node.fields.slug}>
-          <Flipped flipId={`node-${node.id}-title`}>
+          <Flipped translate={true} scale={false} opacity={false} flipId={`node-${node.id}-title`}>
             <h1>{node.frontmatter.title}</h1>
           </Flipped>
         </Link>
-        <Flipped flipId={`node-${node.id}-subtitle`}>
+        <Flipped translate={true} scale={false} opacity={false} flipId={`node-${node.id}-subtitle`}>
           <h3>{node.frontmatter.subtitle}</h3>
         </Flipped>
         {

@@ -9,7 +9,7 @@ export default ({ data }) => {
   const node = data.markdownRemark
   return (
     <article css={css`margin-top: 3rem;`}>
-      <Flipped flipId={node.id}>
+      <Flipped translate={true} scale={true} opacity={false} flipId={node.id}>
         <div css={css`
           display: inline-block;
           width: 75%;
@@ -20,10 +20,10 @@ export default ({ data }) => {
       </Flipped>
       <div css={css`display: flex;`}>
         <div css={css`flex: 3;`}>
-          <Flipped flipId={`node-${node.id}-title`}>
+          <Flipped translate={true} scale={false} opacity={false} flipId={`node-${node.id}-title`}>
             <h1>{node.frontmatter.title}</h1>
           </Flipped>
-          <Flipped flipId={`node-${node.id}-subtitle`}>
+          <Flipped translate={true} scale={false} opacity={false} flipId={`node-${node.id}-subtitle`}>
             <h3>{node.frontmatter.subtitle}</h3>
           </Flipped>
           <div dangerouslySetInnerHTML={{ __html: node.html}}></div>
