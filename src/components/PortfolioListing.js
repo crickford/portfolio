@@ -54,9 +54,13 @@ export default () => {
       </div>
       <div>
         <Link to={node.fields.slug}>
-          <h1>{node.frontmatter.title}</h1>
+          <Flipped flipId={`node-${node.id}-title`}>
+            <h1>{node.frontmatter.title}</h1>
+          </Flipped>
         </Link>
-        <h3>{node.frontmatter.subtitle}</h3>
+        <Flipped flipId={`node-${node.id}-subtitle`}>
+          <h3>{node.frontmatter.subtitle}</h3>
+        </Flipped>
         {
           node.frontmatter.tags.length &&
           <ul css={
@@ -65,7 +69,9 @@ export default () => {
             `
           }>
             {node.frontmatter.tags.map((tag, index) => (
-              <li key={`tag-${index}`} css={defaultTag}>{tag}</li>
+              <Flipped stagger="tags" flipId={`node-${node.id}-tag-${index}`} key={`tag-${index}`}>
+                <li css={defaultTag}>{tag}</li>
+              </Flipped>
             ))}
           </ul>
         }

@@ -39,7 +39,15 @@ export default ({ children }) => {
               background-color: #f4f4f4;
               overflow-y: scroll;
             `}>
-              <Flipper flipKey={location.key}>
+              <Flipper
+                flipKey={location.key}
+                staggerConfig={{
+                  tags: {
+                    // default is .1, 0 < n < 1
+                    speed: .5
+                  }
+                }}
+              >
                 {children}
               </Flipper>
             </main>

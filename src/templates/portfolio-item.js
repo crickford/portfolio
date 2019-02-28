@@ -20,8 +20,12 @@ export default ({ data }) => {
       </Flipped>
       <div css={css`display: flex;`}>
         <div css={css`flex: 3;`}>
-          <h1>{node.frontmatter.title}</h1>
-          <h3>{node.frontmatter.subtitle}</h3>
+          <Flipped flipId={`node-${node.id}-title`}>
+            <h1>{node.frontmatter.title}</h1>
+          </Flipped>
+          <Flipped flipId={`node-${node.id}-subtitle`}>
+            <h3>{node.frontmatter.subtitle}</h3>
+          </Flipped>
           <div dangerouslySetInnerHTML={{ __html: node.html}}></div>
         </div>
         <div css={css`flex: 1;`}>
@@ -31,7 +35,9 @@ export default ({ data }) => {
               <h4>Built with:</h4>
               <ul css={css`list-style: none;`}>
                 {node.frontmatter.tags.map((tag, index) => (
-                  <li key={`tag-${index}`} css={defaultTag}>{tag}</li>
+                  <Flipped stagger="tags" flipId={`node-${node.id}-tag-${index}`} key={`tag-${index}`}>
+                    <li css={defaultTag}>{tag}</li>
+                  </Flipped>
                 ))}
               </ul>
             </>
