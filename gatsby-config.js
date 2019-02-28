@@ -3,7 +3,21 @@ module.exports = {
     title: `Portfolio`,
     owner: {
       name: 'Collin Rickford',
-      jobTitle: `Software Engineer`
+      jobTitle: `Software Engineer`,
+      links: [
+        {
+          title: `Github Profile`,
+          url: `https://github.com/crickford`
+        },
+        {
+          title: `LinkedIn Profile`,
+          url: `https://www.linkedin.com/in/collinrickford`
+        },
+        {
+          title: `Stack Overflow Developer Story`,
+          url: `https://stackoverflow.com/story/crickford`
+        }
+      ]
     }
   },
   plugins: [
