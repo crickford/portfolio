@@ -13,11 +13,23 @@ theme.googleFonts = [
 ]
 
 theme.overrideThemeStyles = () => ({
-  'html': {
-    'overflow-y': 'hidden'
+  ['@media only screen and (max-width: 480px)']: {
+    'ul,ol': {
+      marginLeft: 0,
+    }
+  },
+  ['@media only screen and (min-width: 769px)']: {
+    'html': {
+      'overflow-y': 'hidden'
+    }
   },
   'h1,h2,h3,h4,h5': {
     'margin-top': '1rem'
+  },
+  ['@media only screen and (max-width:980px)']: { // '@media only screen and (max-width:980px) and (min-width:769px)'
+    'html': {
+      'font-size': '14px'
+    }
   }
 })
 

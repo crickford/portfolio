@@ -13,6 +13,9 @@ export default ({ children }) => {
       {({ location }) => (
           <div css={css`
             display: flex;
+            @media only screen and (max-width: 768px) {
+              flex-direction: column;
+            }
           `}>
             <aside css={css`
               flex: 1;
@@ -24,9 +27,11 @@ export default ({ children }) => {
               <main css={css`
                 flex: 4;
                 padding: 0 4rem;
-                height: 100vh;
                 background-color: #f4f4f4;
-                overflow-y: scroll;
+                @media only screen and (min-width: 769px) {
+                  height: 100vh;
+                  overflow-y: scroll;
+                }
               `}>
                 <Flipper
                   flipKey={location.key}

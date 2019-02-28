@@ -40,6 +40,10 @@ export default () => {
       margin: 3rem 0;
       display: flex;
       align-items: center;
+      @media only screen and (max-width: 580px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     `}>
       <div css={css`
         margin-right: 1rem;
