@@ -34,7 +34,7 @@ export default ({ children }) => {
             </aside>
             <main css={css`
               flex: 4;
-              padding-left: 2rem;
+              padding: 0 4rem;
               height: 100vh;
               background-color: #f4f4f4;
               overflow-y: scroll;

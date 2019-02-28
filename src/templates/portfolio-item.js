@@ -28,7 +28,10 @@ export default ({ data }) => {
           </Flipped>
           <div dangerouslySetInnerHTML={{ __html: node.html}}></div>
         </div>
-        <div css={css`flex: 1;`}>
+        <div css={css`
+          flex: 1;
+          padding-left: 1rem;
+        `}>
           {
             node.frontmatter.tags.length &&
             <>
