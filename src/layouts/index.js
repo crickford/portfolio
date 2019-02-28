@@ -1,23 +1,11 @@
 import React from "react"
 import { css } from '@emotion/core'
-import { useStaticQuery, graphql } from "gatsby"
 import { Flipper } from "react-flip-toolkit"
 import { Location } from "@reach/router"
 
+import Sidebar from "../components/Sidebar"
+
 export default ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title,
-          owner {
-            name,
-            jobTitle
-          }
-        }
-      }
-    }
-  `)
 
   return (
     <Location>
@@ -29,8 +17,7 @@ export default ({ children }) => {
               flex: 1;
               padding: 2rem;
             `}>
-              <h1>{data.site.siteMetadata.owner.name}</h1>
-              <h3>{data.site.siteMetadata.owner.jobTitle}</h3>
+              <Sidebar />
             </aside>
             <main css={css`
               flex: 4;
