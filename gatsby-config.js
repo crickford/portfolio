@@ -25,6 +25,7 @@ module.exports = {
     `gatsby-plugin-layout`,
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -37,20 +38,6 @@ module.exports = {
         name: `src`,
         path: `${__dirname}/src/`,
       },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-external-links",
-            options: {
-              target: "_blank",
-              rel: "nofollow"
-            }
-          }
-        ]
-      }
     }
   ]
 }
