@@ -63,11 +63,7 @@ export default () => {
         </Flipped>
         {
           node.frontmatter.tags.length &&
-          <ul css={
-            css`
-              list-style: none;
-            `
-          }>
+          <ul css={css`list-style: none;`}>
             {node.frontmatter.tags.map((tag, index) => (
               <Flipped stagger="tags" flipId={`node-${node.id}-tag-${index}`} key={`tag-${index}`}>
                 <li css={defaultTag}>{tag}</li>
