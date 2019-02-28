@@ -40,7 +40,7 @@ export default ({ children }) => {
       <h3>{data.site.siteMetadata.owner.jobTitle}</h3>
       <Image style={{ display: 'block', margin: '3rem auto'}} imgStyle={{ borderRadius: '50%'}} fixed={data.file.childImageSharp.fixed} />
       <p>I love to build things. Check out some of the things I've built!</p>
-      {data.site.siteMetadata.owner.links.length && data.site.siteMetadata.owner.links.map(({title, url}) => <a css={socialLink} href={url}>{title}</a>)}
+      {data.site.siteMetadata.owner.links.length && data.site.siteMetadata.owner.links.map(({title, url}, index) => <a key={index} css={socialLink} href={url}>{title}</a>)}
     </>
   )
 }
