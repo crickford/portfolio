@@ -13,6 +13,9 @@ theme.googleFonts = [
 ]
 
 theme.overrideThemeStyles = () => ({
+  'a': {
+    color: '#10a6d0',
+  },
   ['@media only screen and (max-width: 480px)']: {
     'ul,ol': {
       marginLeft: 0,

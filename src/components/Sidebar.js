@@ -36,9 +36,18 @@ export default ({ children }) => {
 
   return (
     <>
-      <h1>{data.site.siteMetadata.owner.name}</h1>
+      <h1 css={css`margin-bottom: 1rem;`}>{data.site.siteMetadata.owner.name}</h1>
       <h3>{data.site.siteMetadata.owner.jobTitle}</h3>
-      <Image style={{ display: 'block', margin: '3rem auto'}} imgStyle={{ borderRadius: '50%'}} fixed={data.file.childImageSharp.fixed} />
+      <div css={css`
+        display: block;
+        margin: 3rem auto;
+        max-width: 180px;
+        @media only screen and (max-width:1200px) {
+          margin: 1.5rem auto;
+        }
+      `}>
+        <Image imgStyle={{ borderRadius: '50%'}} fixed={data.file.childImageSharp.fixed} />
+      </div>
       <p>I love to build things. Check out some of the things I've built!</p>
       {data.site.siteMetadata.owner.links.length && data.site.siteMetadata.owner.links.map(({title, url}, index) => <a key={index} css={socialLink} href={url}>{title}</a>)}
     </>
