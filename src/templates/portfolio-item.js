@@ -10,25 +10,17 @@ class PortfolioItem extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      showContent: false
+      bodyStyle: css`opacity: 1;`
     }
   }
 
-  show() {
+  hideBody() {
     this.setState({
-      showContent: true
+      bodyStyle: css`opacity: 0;`
     })
   }
 
-  componentDidMount() {
-    setTimeout(
-      () => this.show(),
-      400
-    );
-  }
-
-  render() {
-    const node = this.props.data.markdownRemark
+  showBody() {
     const fadeIn = keyframes`
       0% {
         opacity: 0;
@@ -38,6 +30,14 @@ class PortfolioItem extends React.Component {
         opacity: 1;
       }
     `
+    this.setState({
+      bodyStyle: css`animation: ${fadeIn} .5s forwards;`
+    })
+  }
+
+  render() {
+    const node = this.props.data.markdownRemark
+
     return (
       <article css={css`margin-top: 3rem;`}>
         <Helmet>
@@ -45,11 +45,12 @@ class PortfolioItem extends React.Component {
           <title>Portfolio - {node.frontmatter.title}</title>
           <link rel="canonical" href={`http://crickford.github.io${node.fields.slug}`} />
         </Helmet>
-        <Flipped translate={true} scale={true} opacity={false} flipId={node.id}>
+        <Flipped translate={true} scale={true} opacity={false} flipId={node.id} onStartImmediate={() => {this.hideBody()}} onComplete={() => {this.showBody()}}>
           <div css={css`
             display: inline-block;
             width: 75%;
             max-width: 800px;
+            z-index: 100;
           `}>
             <Image fluid={node.frontmatter.mainimage.childImageSharp.fluid}></Image>
           </div>
@@ -62,7 +63,7 @@ class PortfolioItem extends React.Component {
             <Flipped translate={true} scale={false} opacity={false} flipId={`node-${node.id}-subtitle`}>
               <h3>{node.frontmatter.subtitle}</h3>
             </Flipped>
-            <div css={this.state.showContent ? css`animation: ${fadeIn} .5s forwards;` : css`opacity: 0;`} dangerouslySetInnerHTML={{ __html: node.html}}></div>
+            <div css={this.state.bodyStyle} dangerouslySetInnerHTML={{ __html: node.html}}></div>
           </div>
           <div css={css`
             flex: 1;
