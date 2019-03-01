@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import { css, keyframes } from "@emotion/core"
 import { defaultTag } from "../styles/index"
 import { Flipped } from "react-flip-toolkit"
+import { Helmet } from "react-helmet"
 
 class PortfolioItem extends React.Component {
   constructor(props) {
@@ -39,6 +40,11 @@ class PortfolioItem extends React.Component {
     `
     return (
       <article css={css`margin-top: 3rem;`}>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Portfolio - {node.frontmatter.title}</title>
+          <link rel="canonical" href={`http://crickford.github.io${node.fields.slug}`} />
+        </Helmet>
         <Flipped translate={true} scale={true} opacity={false} flipId={node.id}>
           <div css={css`
             display: inline-block;
@@ -90,6 +96,9 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id,
       html,
+      fields {
+        slug
+      },
       frontmatter {
         title,
         subtitle,

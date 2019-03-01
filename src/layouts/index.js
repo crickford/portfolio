@@ -3,6 +3,7 @@ import { css } from '@emotion/core'
 import { Flipper } from "react-flip-toolkit"
 import { Location } from "@reach/router"
 import { ScrollContainer } from 'gatsby-react-router-scroll'
+import { Helmet } from 'react-helmet'
 
 import Sidebar from "../components/Sidebar"
 
@@ -11,6 +12,12 @@ export default ({ children }) => {
   return (
     <Location>
       {({ location }) => (
+        <>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Portfolio</title>
+            <link rel="canonical" href="http://crickford.github.io" />
+          </Helmet>
           <div css={css`
             display: flex;
             @media only screen and (max-width: 768px) {
@@ -47,6 +54,7 @@ export default ({ children }) => {
               </main>
             </ScrollContainer>
           </div>
+        </>
       )}
     </Location>
   )
