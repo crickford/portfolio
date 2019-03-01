@@ -1,6 +1,10 @@
 import Typography from "typography"
 import theme from "typography-theme-sutro"
 
+const phoneBreakpoint = '@media only screen and (max-width: 480px)';
+const tabletBreakpoint = '@media only screen and (max-width:980px)'
+const defaultBreakpoint = '@media only screen and (min-width: 769px)';
+
 theme.googleFonts = [
   {
     name: 'Open Sans',
@@ -16,12 +20,12 @@ theme.overrideThemeStyles = () => ({
   'a': {
     color: '#10a6d0',
   },
-  ['@media only screen and (max-width: 480px)']: {
+  [phoneBreakpoint]: {
     'ul,ol': {
       marginLeft: 0,
     }
   },
-  ['@media only screen and (min-width: 769px)']: {
+  [defaultBreakpoint]: {
     'html': {
       'overflow-y': 'hidden'
     }
@@ -29,7 +33,7 @@ theme.overrideThemeStyles = () => ({
   'h1,h2,h3,h4,h5': {
     'margin-top': '1rem'
   },
-  ['@media only screen and (max-width:980px)']: { // '@media only screen and (max-width:980px) and (min-width:769px)'
+  [tabletBreakpoint]: {
     'html': {
       'font-size': '14px'
     }
