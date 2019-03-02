@@ -35,6 +35,7 @@ export default ({ children }) => {
                 flex: 4;
                 padding: 0 4rem;
                 background-color: #f4f4f4;
+                overflow-x: hidden;
                 @media only screen and (min-width: 769px) {
                   height: 100vh;
                   overflow-y: scroll;
