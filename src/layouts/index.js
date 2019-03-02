@@ -33,7 +33,10 @@ export default ({ children }) => {
             <ScrollContainer scrollKey="main">
               <main css={css`
                 flex: 4;
-                padding: 0 4rem;
+                padding: 0 2rem;
+                @media only screen and (min-width: 1200px) {
+                  padding: 0 4rem;
+                }
                 background-color: #f4f4f4;
                 overflow-x: hidden;
                 @media only screen and (min-width: 769px) {

@@ -48,7 +48,10 @@ class PortfolioItem extends React.Component {
         <Flipped translate={true} scale={true} opacity={false} flipId={node.id} onStartImmediate={() => {this.hideBody()}} onComplete={() => {this.showBody()}}>
           <div css={css`
             display: inline-block;
-            width: 75%;
+            width: 100%;
+            @media only screen and (min-width: 768px) { 
+              width: 75%;
+            }
             max-width: 800px;
             z-index: 100;
           `}>
